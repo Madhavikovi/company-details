@@ -42,8 +42,8 @@ angular.module('myApp', [])
 					 				 if ($.isEmptyObject(itemHash[rowData.companyname][key]))
 					 					 itemHash[rowData.companyname][key] = {};
 					 				 
-					 				 if (angular.isNumber(value))
-					 					 value = (value + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+//					 				 if (angular.isNumber(value))
+//					 					 value = (value + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 					 				 
 					 				 itemHash[rowData.companyname][key][rowData.fiscalyear] = value;
 					 			 });
@@ -64,5 +64,15 @@ angular.module('myApp', [])
 		    	 .catch(function(response){
 		    		 $scope.error = response.data.Message;
 		         }); 
+	  }
+	  $scope.currencyItem = function(item, value){
+		  var itemArray = ['capitalexpenditures', 'cashandcashequivalents', 'cashcashequivalentsandshortterminvestments', 'cashfromfinancingactivities', 'cashfrominvestingactivities', 'cashfromoperatingactivities', 'cfdepreciationamortization', 'changeinaccountsreceivable', 'changeincurrentassets', 'changeincurrentliabilities', 'changeininventories', 'commonstock', 'costofrevenue', 'deferredcharges', 'dividendspaid', 'ebit', 'effectofexchangerateoncash', 'equityearnings', 'goodwill', 'grossprofit', 'incomebeforetaxes', 'intangibleassets', 'interestexpense', 'inventoriesnet', 'investmentchangesnet', 'minorityinterest', 'netchangeincash', 'netincome', 'netincomeapplicabletocommon', 'otherassets', 'othercurrentassets', 'othercurrentliabilities', 'otherliabilities', 'propertyplantequipmentnet', 'researchdevelopmentexpense', 'retainedearnings', 'sellinggeneraladministrativeexpenses', 'totaladjustments', 'totalassets', 'totalcurrentassets', 'totalcurrentliabilities', 'totalliabilities', 'totallongtermdebt', 'totalreceivablesnet', 'totalrevenue', 'totalshorttermdebt', 'totalstockholdersequity'];
+		  if ($.inArray(item, itemArray) >= 0){
+			  value = (value + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+		  	  if (value == "null")
+		  		  value = "";
+		  }
+//		  else
+			  return value;
 	  }
   });
