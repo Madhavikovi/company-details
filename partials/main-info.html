@@ -1,0 +1,38 @@
+<div ng-if="!coreFinanceAnn && !error">
+  Loading results...
+</div>
+
+<div ng-if="coreFinanceAnn && !error">
+	<div class="">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Items</th>
+					<th>2015</th>
+					<th>2014</th>
+					<th>2013</th>
+					<th>2012</th>
+				</tr>
+			</thead>
+			
+			<tbody ng-repeat="(company, itemDetails) in coreFinanceAnn">
+				<tr>
+					<td colspan="5" align="center">
+						<b> Annual Core Financial Details of {{ company }}</b>
+					</td>
+				</tr>
+				<tr ng-repeat="(item, finance) in itemDetails">
+					<td> {{ item }} </td>
+					<td> {{ finance[2015] | currency:"":0 }} </td>
+					<td> {{ finance[2014] }} </td>
+					<td> {{ finance[2013] }} </td>
+					<td> {{ finance[2012] }} </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div ng-if="error && !coreFinanceAnn">
+	{{ error }}
+</div>

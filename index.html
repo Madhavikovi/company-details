@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="CompanyController">
+  <head>
+    <title ng-bind="'Fastr - ' + details.Title"></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <div class="container-fluid outerdiv">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><b>Company</b> <span class="span-style">Core Financials</span></a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="animated zoomInRight">
+		<form class="form-inline" ng-submit="getCompanyDetails()" name="companyForm">
+		  <div class="form-group">
+		    <input type="text" class="form-control" ng-model="company" placeholder="Companies" required>
+		  </div>
+		  <button type="submit" class="btn btn-default" onclick="$('#main-info').show();" >Search</button>
+		</form>
+		<br/>
+        <div style="display:none;" id="main-info" ng-include="'partials/main-info.html'" class="col-md-8"></div>
+      </div>
+    </div>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
