@@ -3,6 +3,7 @@
 angular.module('myApp', [])
   .controller('CompanyController', function($scope, $http){
 	  $scope.getCompanyDetails = function(){
+		  $scope.coreFinanceAnn = "";
 		  var primarySymbol = '';
 		  $http.get("http://edgaronline.api.mashery.com/v2/companies?fields=primarysymbol&companynames=" + $scope.company + "&appkey=apfn5drrntkur4gk4ebkdggj")
 		 	 .then(function(response){

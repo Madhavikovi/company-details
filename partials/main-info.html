@@ -4,8 +4,11 @@
 
 <div ng-if="coreFinanceAnn && !error">
 	<div class="">
-		<table class="table table-bordered">
+		<table class="table table-bordered" ng-repeat="(company, itemDetails) in coreFinanceAnn">
 			<thead>
+				<tr>
+					<th colspan="5"><h2>Annual Core Financial Details of {{ company }}</h2></th>
+				</tr>
 				<tr>
 					<th>Items</th>
 					<th>2015</th>
@@ -15,12 +18,7 @@
 				</tr>
 			</thead>
 			
-			<tbody ng-repeat="(company, itemDetails) in coreFinanceAnn">
-				<tr>
-					<td colspan="5" align="center">
-						<b> Annual Core Financial Details of {{ company }}</b>
-					</td>
-				</tr>
+			<tbody>
 				<tr ng-repeat="(item, finance) in itemDetails">
 					<td> {{ item }} </td>
 					<td> {{ currencyItem(item, finance[2015]) }} </td>
