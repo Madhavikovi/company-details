@@ -41,10 +41,6 @@ angular.module('myApp', [])
 					 					 itemHash[rowData.companyname] = {};
 					 				 if ($.isEmptyObject(itemHash[rowData.companyname][key]))
 					 					 itemHash[rowData.companyname][key] = {};
-					 				 
-//					 				 if (angular.isNumber(value))
-//					 					 value = (value + "").replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-					 				 
 					 				 itemHash[rowData.companyname][key][rowData.fiscalyear] = value;
 					 			 });
 					 		 });
@@ -72,7 +68,6 @@ angular.module('myApp', [])
 		  	  if (value == "null")
 		  		  value = "";
 		  }
-//		  else
-			  return value;
+		  return value;
 	  }
   });
