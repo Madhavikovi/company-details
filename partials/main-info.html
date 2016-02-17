@@ -1,5 +1,5 @@
 <div ng-if="!coreFinanceAnn && !error">
-  Loading results...
+  <h3>Loading results...</h3>
 </div>
 
 <div ng-if="coreFinanceAnn && !error">
@@ -32,5 +32,5 @@
 </div>
 
 <div ng-if="error && !coreFinanceAnn">
-	{{ error }}
+	<h3>{{ error }}</h3>
 </div>
